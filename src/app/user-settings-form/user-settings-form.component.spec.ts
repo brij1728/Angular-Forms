@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserSettingFormComponent } from './user-setting-form.component';
+import { UserSettingFormComponent } from './user-settings-form.component';
 
 describe('UserSettingFormComponent', () => {
   let component: UserSettingFormComponent;

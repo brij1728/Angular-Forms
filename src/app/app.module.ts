@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { UserSettingFormComponent } from './user-setting-form/user-setting-form.component';
+import { UserSettingsFormComponent } from './user-settings-form/user-settings-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSettingFormComponent
+    UserSettingsFormComponent
   ],
   imports: [
     BrowserModule,
