@@ -18,6 +18,12 @@ export class UserSettingsFormComponent implements OnInit {
     notes: null,
   };
 
+  userRating: number = 5;
+  maxRating: number = 5;
+  isReadonly
+  singleModel = 'On';
+  startTime: Date;
+  startDate: Date;
   userSettings: UserSettings = { ...this.originalUserSettings };
   postError = false;
   postErrorMessage = '';
@@ -27,29 +33,25 @@ export class UserSettingsFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+
+    this.startDate = new Date();
   }
 
   onBlur(field: NgModel) {
     console.log(`in blur: ${field.valid}`);
-    
   }
 
-  onHttpError(errorResponse: any){
+  onHttpError(errorResponse: any) {
     console.log('error:', errorResponse);
     this.postError = true;
     this.postErrorMessage = errorResponse.error.errorMessage;
-    
-
   }
 
-  onSubmit(form: NgForm){
-    console.log(`in submit: ${form.valid}`);
-    this.dataService.postUserSettingForm(this.userSettings).subscribe(
-      result => console.log('success:', result),
-      error => this.onHttpError(error)
-      
-      
-    );
-    
+  onSubmit(form: NgForm) {
+    console.log(`in submit: ${form.value}`);
+    // this.dataService.postUserSettingForm(this.userSettings).subscribe(
+    //   (result) => console.log('success:', result),
+    //   (error) => this.onHttpError(error)
+    // );
   }
 }
